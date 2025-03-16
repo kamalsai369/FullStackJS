@@ -126,4 +126,131 @@ function fun(){
  console.log(person1.fun());
 
 
+
+ //json methods
+    const person2={
+        name:"John",
+        age:25,
+        country:"India" 
+    };  
+    console.log(person2);
+    console.log(JSON.stringify(person2));
+    console.log(JSON.stringify(person2,null,2));
+    console.log(JSON.stringify(person2,["name","age"],2));
+   
+    //date 
+let date=new Date();
+console.log(date);
+const year=date.getFullYear();
+console.log(year);
+const month=date.getMonth();
+console.log(month); 
+const hours=date.getHours();
+console.log(hours);
+const minutes=date.getMinutes();
+console.log(minutes);
+const seconds=date.getSeconds();
+console.log(seconds);
+const milliseconds=date.getMilliseconds();
+console.log(milliseconds);
+
+console.log(date.toDateString());
+console.log(date.toTimeString());
+
+
+//settimeout
+setTimeout(function(){
+    console.log("Hello");
+},3000);
+
+const interval=setInterval(function(){
+    console.log("Hello");
+}, 1000);
+
+setTimeout(function(){
+    clearInterval(interval);
+},3000);
  
+//arrow function
+
+
+const double=(n)=>n*2;
+console.log(double(21));
+
+//object literals   
+function user1(name,age){
+    return{
+        name:name,
+        age:age,
+    };
+}
+const huxn=user1("John",25);
+console.log(huxn);
+
+
+//enhanced object literals
+function user2(name,age){
+    return{
+        name,
+        age,
+        intro:function(){
+            return `Hello, my name is ${this.name} and I am ${this.age} years old`;
+        }
+    };
+} 
+
+const huxn1=user2("John",25);
+console.log(huxn1.intro());
+
+
+function user3(name,age){
+    return{
+        name,
+        age,
+        intro(){
+            return `Hello, my name is ${this.name} and I am ${this.age} years old`;
+        }
+    };
+}
+const huxn2=user3("John",25);
+console.log(huxn2.intro());
+
+const lib={
+    sum:(a,b)=>a+b,
+    sub:(a,b)=>a-b, 
+}
+console.log(lib.sum(10,5));
+console.log(lib.sub(10,5));
+
+
+function getPersionES6(name,age,height){
+    return {name,age,height};
+}
+const personES6=getPersionES6("John",25,5.8);
+console.log(personES6);
+ 
+
+//spread operator is a new addition to the set of operators in JavaScript ES6. It takes in the contents of an iterable like an array or object and expands it into individual elements.
+//spread operator for arrays
+const arr1=[1,2,3];
+const arr2=[4,5,6];
+const arr3=[...arr1,...arr2];
+console.log(arr3);
+
+//spread operator for functions
+function sum(a,b,c){
+    return a+b+c;
+}
+const numbers=[1,2,3];
+console.log(sum(...numbers));
+
+//spread operator for objects
+const person4={
+    name:"John",
+    age:25,
+};  
+const person5={
+    ...person4,
+    country:"India",
+};
+console.log(person5);
